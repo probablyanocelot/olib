@@ -1,0 +1,11 @@
+# Delete git branch
+
+```bash
+git branch -d {branch-name}
+```
+
+if it hasn't been published yet (still local-only)
+
+```bash
+git branch -D {branch-name}
+```

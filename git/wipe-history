@@ -1,0 +1,37 @@
+# Wipe file from git history (filter-repo)
+
+if not already installed:
+
+````bash
+pip install git-filter-repo
+
+
+backup repo (or use a fresh clone in a different directory)
+
+```bash
+git branch backup-before-filter
+````
+
+Remove the file from all history:
+
+```bash
+git filter-repo --path {relative-path-to-file} --invert-paths
+```
+
+if that fails, try
+
+```bash
+python -m git_filter_repo --path {relative-path-to-file} --invert-paths
+```
+
+you'll have to add remote origin again.
+
+```bash
+git remote add origin {remote-url}
+```
+
+Then push the rewritten history to the intended remote:
+
+```bash
+git push --force origin {branch-name}
+```
