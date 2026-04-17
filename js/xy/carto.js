@@ -32,7 +32,7 @@ Grapher.set("plot", function (x, y) {
   this.points.push(point);
   return result;
 });
-console.log(Grapher.plot(850, 50));
-console.log(Grapher.points);
-console.log(Grapher);
+console.log(Grapher.plot(850, 750));
+console.log(`Grapher.points: ${JSON.stringify(Grapher.points)}`);
+console.log(`Grapher object: ${JSON.stringify(Grapher)}`);
 module.exports = { Grapher };
