@@ -1,0 +1,28 @@
+{
+  // Add this to your own vscode tasks.json file. (can leave these comments out)
+  // vscode has one for both user-level and workspace-level, so
+  // you can choose which one to put it in.
+  // I recommend user-level so it's available in
+  // all vscode instances on your machine.
+  // )
+  // This will start the AHK script that enables ctrl+scroll tab cycling in vscode.
+
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start VSCode AHK scroll helper",
+      "type": "shell",
+      "command": "C:\\Program Files\\AutoHotkey\\v1.1.37.02\\AutoHotkeyU64.exe",
+      "args": [
+        "C:\\Users\\Boop\\Documents\\AutoHotkey\\vscode-scroll-tabs.ahk"
+      ],
+      "problemMatcher": [],
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}
