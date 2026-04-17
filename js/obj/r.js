@@ -1,12 +1,17 @@
-// const { clientConfig } = require("./config");
+/**
+ * Filters an object based on a query.
+ * @param {Object} obj - The object to filter.
+ * @param {string} query - The property name to filter by.
+ * @return {Object} An object containing only the properties that have the specified query.
+ * @example
+ * itemsWithDex = filter(G.items, 'dex')
+ * console.log(itemsWithDex)
+ */
+const filter = (obj, query) =>
+  Object.fromEntries(
+    Object.entries(obj).filter(([key, subObj]) => subObj.hasOwnProperty(query)),
+  );
 
-
-
-// module.exports = {
-//   clientConfig,
-// };
-
-// const { filterBy } = require("./fns");
 /**
  * Filters an object based on a predicate function.
  * @param {Object} obj - The object to filter.
@@ -22,27 +27,7 @@ function filterBy(obj, predicate) {
     .map(([key, item]) => ({ key, ...item }));
 }
 
-// module.exports = {
-//   filterBy,
-// };
-
-function createLiveClass(source) {
-  return new Proxy(source, {
-    get(target, prop) {
-      return target[prop];
-    },
-    set(target, prop, value) {
-      target[prop] = value;
-      return true;
-    },
-  });
-}
-
-// init
-clientConfig();
-let bot = createLiveClass(parent.character);
-bot.skills = filterBy(G.skills, (skill) => skill?.class?.includes(bot.ctype));
-
-// module.exports = {
-//   bot,
-// };
+module.exports = {
+  filter,
+  filterBy,
+};

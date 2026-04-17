@@ -1,6 +1,5 @@
-const proxied_require = (() => {
-  const WEB_BASE =
-    "https://raw.githubusercontent.com/probablyanocelot/AdventureLandBots/refs/heads/rework/";
+const proxied_require = ((user) => {
+  const WEB_BASE = `https://raw.githubusercontent.com/${user}/AdventureLandBots/refs/heads/rework/`;
   const FOLDER = "/lib/";
   const AsyncFunction = (async () => {}).constructor;
   const module_cache = new Map();
@@ -80,5 +79,5 @@ const proxied_require = (() => {
   const libs = await proxied_require("main.js");
   const { main } = libs.main;
 
-  window.main = main;   // <-- REQUIRED
+  window.main = main; // <-- REQUIRED
 })();
